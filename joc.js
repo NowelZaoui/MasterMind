@@ -78,9 +78,14 @@ function valueCorrecte(val)
 function hasGuanyat(table)
 {
     alert("Has trobat el codi secret. :-)");
-    var vict=parseInt(document.getElementById("victories").value);
-    alert(vict);
+
+    //Canviem el contador
+    var score=document.getElementById("victories");
+    var vict=parseInt(score.textContent);
     vict++;
+    score.innerHTML=String(vict);
+
+    //reset
     numeroIntents=0;
     for(var i = 1;i<table.rows.length;){
         table.deleteRow(i);
@@ -91,6 +96,14 @@ function hasGuanyat(table)
 function hasPerdut(table)
 {
     alert("Has superat el numero de intents. :-(");
+
+    //Canviem el contador
+    var score=document.getElementById("derrotes");
+    var derr=parseInt(score.textContent);
+    derr++;
+    score.innerHTML=String(derr);
+    
+    //reset
     numeroIntents=0;
     for(var i = 1;i<table.rows.length;){
         table.deleteRow(i);

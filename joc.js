@@ -3,6 +3,7 @@ codiSecret=generarNumeroAleatori();
 const maximIntents=10;
 numeroIntents=0;
 fun = false;
+var NumeroRonda=1;
 
 function afegir(){
 	var res=document.getElementById("GuessTextBox");
@@ -99,6 +100,9 @@ function hasGuanyat(table)
         table.deleteRow(i);
     }
     codiSecret=generarNumeroAleatori();
+    var ronda = document.getElementById("Round");
+    NumeroRonda++;
+	ronda.textContent = "Round "+String(NumeroRonda)+":";
 }
 
 function hasPerdut(table)
@@ -117,6 +121,10 @@ function hasPerdut(table)
         table.deleteRow(i);
     }
     codiSecret=generarNumeroAleatori();
+    
+    var ronda = document.getElementById("Round");
+    NumeroRonda++;
+	ronda.textContent = "Round "+String(NumeroRonda)+":";
 }
 
 function generarNumeroAleatori()
@@ -138,6 +146,11 @@ function generarNumeroAleatori()
 function randomIntFromInterval(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
+
+
+
+
+
 
 function someFun(value)
 {

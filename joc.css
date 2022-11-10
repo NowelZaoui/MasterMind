@@ -1,0 +1,40 @@
+body{
+    width: fit-content;
+    font-family:Verdana,Arial, serif;
+    margin-left: 40px;
+    margin-right: 40px;
+ }
+ 
+ h2{
+    font-family:Georgia, Times, serif;
+    font-style:italic;
+    background-color: lightgray;
+    width: 620px; 
+ }
+ 
+ header {
+    font-family:Georgia, Times, serif;
+    font-size:1.2rem; 
+    background-color: darkblue;
+    color: white;
+    text-align: center;
+    padding: 15px;
+ }
+ 
+ hr{
+     size: 6px;
+     color: pink;
+ }
+
+ .dot{
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+ }
+ 
+ table{
+    border-style: solid;
+ }

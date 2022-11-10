@@ -35,24 +35,6 @@ body{
     display: inline-block;
  }
  
-.dotPos{
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: lime;
-    border-radius: 50%;
-    display: inline-block;
-}
-  
-.dotNum{
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: orange;
-    border-radius: 50%;
-    display: inline-block;
-}
- 
  table{
     border-style: solid;
  }

@@ -3,29 +3,14 @@ codiSecret=generarNumeroAleatori();
 const maximIntents=10;
 numeroIntents=0;
 
-function containsOnlyNumbers(str) {
-    return /^[0-9]+$/.test(str);
-  }
+
 function afegir(){
 	var res=document.getElementById("GuessTextBox");
     var table=document.getElementById("Taula");
     var val=res.value;
-    if(isNaN(val))//Comprova que es un numero
-        alert("Ha de ser un numero");
-    else if(parseInt(val)<0)//Que sigui positiu
-    {
-        alert("Ha de ser un numero positiu");
-    }
-    else if(!containsOnlyNumbers(val))
-    {
-        alert("Ha de ser un numero natural");
-
-    }
-    else if(val.length!=lengthCodiSecret)// Ha de ser de mida 4
-    {
-        alert("Ha de ser un numero de mida "+String(lengthCodiSecret));
-    }
-    else{
+   
+   if(valueCorrecte(val))
+   {
         var countAcertsPosicio=0;
         var countAcerts_existeix=0;
         for(i=0;i<val.length;i++)
@@ -48,16 +33,10 @@ function afegir(){
             }
             var cell=row.insertCell(val.length+0);
             cell.innerHTML = String (countAcertsPosicio);
-			cell=row.insertCell(val.length+1);
-			cell.innerHTML = '<span class="dotPos"> </span>'
-            cell=row.insertCell(val.length+2);
+            cell=row.insertCell(val.length+1);
             cell.innerHTML = String (countAcerts_existeix);
-			cell=row.insertCell(val.length+3);
-			cell.innerHTML = '<span class="dotNum"> </span>'
 
             numeroIntents++;
-			var ronda = document.getElementById("Round");
-			ronda.textContent = "Round " + String(numeroIntents+1) + ":";
             if(numeroIntents==maximIntents)
                 hasPerdut(table);
          }
@@ -65,14 +44,47 @@ function afegir(){
     }
 }
 
+function containsOnlyNumbers(str) {
+    return /^[0-9]+$/.test(str);
+  }
+
+function valueCorrecte(val)
+{
+    if(isNaN(val))//Comprova que es un numero
+    {
+        alert("Ha de ser un numero");
+        return false;
+    }
+    else if(parseInt(val)<0)//Que sigui positiu
+    {
+        alert("Ha de ser un numero positiu");
+        return false;
+    }
+    else if(!containsOnlyNumbers(val))
+    {
+        alert("Ha de ser un numero natural");
+        return false;
+
+    }
+    else if(val.length!=lengthCodiSecret)// Ha de ser de mida 4
+    {
+        alert("Ha de ser un numero de mida "+String(lengthCodiSecret));
+        return false;
+    }
+    return true;
+
+}
+
 function hasGuanyat(table)
 {
     alert("Has trobat el codi secret. :-)");
+    var vict=parseInt(document.getElementById("victories").value);
+    alert(vict);
+    vict++;
     numeroIntents=0;
     for(var i = 1;i<table.rows.length;){
         table.deleteRow(i);
     }
-	ronda.textContent = "Round 1:"
     codiSecret=generarNumeroAleatori();
 }
 
@@ -83,11 +95,7 @@ function hasPerdut(table)
     for(var i = 1;i<table.rows.length;){
         table.deleteRow(i);
     }
-	var ronda = document.getElementById("Round");
-	ronda.textContent = "Round 1:";
     codiSecret=generarNumeroAleatori();
-
-
 }
 
 function generarNumeroAleatori()
@@ -99,9 +107,9 @@ function generarNumeroAleatori()
     for(i=0;i<lengthCodiSecret;i++)
     {
         var index=randomIntFromInterval(0,listOfNumbers.length-1);
-		var number=listOfNumbers[index];
-		listOfNumbers.splice(index,1);
-		numeroAleatori=numeroAleatori+String(number);
+        var number=listOfNumbers[index];
+        listOfNumbers.splice(index,1);
+        numeroAleatori=numeroAleatori+String(number);
     }
     
     alert(numeroAleatori);
@@ -110,3 +118,4 @@ function generarNumeroAleatori()
 function randomIntFromInterval(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
+  

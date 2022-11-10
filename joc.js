@@ -3,7 +3,6 @@ codiSecret=generarNumeroAleatori();
 const maximIntents=10;
 numeroIntents=0;
 fun = false;
-var NumeroRonda=1;
 
 function afegir(){
 	var res=document.getElementById("GuessTextBox");
@@ -101,8 +100,7 @@ function hasGuanyat(table)
     }
     codiSecret=generarNumeroAleatori();
     var ronda = document.getElementById("Round");
-    NumeroRonda++;
-	ronda.textContent = "Round "+String(NumeroRonda)+":";
+	ronda.textContent = String(parseInt(ronda.textContent)+1);
 }
 
 function hasPerdut(table)
@@ -123,8 +121,7 @@ function hasPerdut(table)
     codiSecret=generarNumeroAleatori();
 
     var ronda = document.getElementById("Round");
-    NumeroRonda++;
-	ronda.textContent = "Round "+String(NumeroRonda)+":";
+	ronda.textContent = String(parseInt(ronda.textContent)+1);
 }
 
 function generarNumeroAleatori()
@@ -169,7 +166,7 @@ function someFun(value)
             alert("The life, the universe, and everything")
             break;
         case 1984:
-            alert("Big brother watches over you");
+            alert("WAR IS PEACE--FREEDOM IS SLAVERY--IGNORANCE IS STRENGTH");
             break;
         case 2020:
             alert("Bat soup was a bad idea");
@@ -191,6 +188,15 @@ function someFun(value)
             break;
         case 3141:
             alert("PI");
+            break;
+        case 3:
+            alert("Thats no PI (maybe)");
+            break;
+        case 1618:
+            alert("Gold")
+            break;
+        case 1312:
+            alert("All Cats Are Beautiful")
             break;
         default:
             break;

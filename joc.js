@@ -1,7 +1,11 @@
 const lengthCodiSecret=4;
-codiSecret=String("1234");
-const maximIntents=3;
+codiSecret=generarNumeroAleatori();
+const maximIntents=4;
 numeroIntents=0;
+
+function containsOnlyNumbers(str) {
+    return /^[0-9]+$/.test(str);
+  }
 function afegir(){
 	var res=document.getElementById("GuessTextBox");
     var table=document.getElementById("Taula");
@@ -12,27 +16,26 @@ function afegir(){
     {
         alert("Ha de ser un numero positiu");
     }
-    else if(String(parseInt(val))!==val)//Que sigui un enter positiu. el ParseInt s'atura quan troba un caracter com '.' (que seria un float). Si el numero resultat no es igual com string, es que ha trobat un valor incorrecte
+    else if(!containsOnlyNumbers(val))
     {
         alert("Ha de ser un numero natural");
 
     }
-    else if(val.length!=4)// Ha de ser de mida 4
+    else if(val.length!=lengthCodiSecret)// Ha de ser de mida 4
     {
-        alert("Ha de ser un numero de mida 4");
+        alert("Ha de ser un numero de mida "+String(lengthCodiSecret));
     }
     else{
-        val=String(val);
         var countAcertsPosicio=0;
         var countAcerts_existeix=0;
         for(i=0;i<val.length;i++)
         {
-            if(val[i]===codiSecret[i])
+            if(val[i]===codiSecret[i])//Si conicideix la posicio
                 countAcertsPosicio++;
-            else if(codiSecret.includes(val[i]))
+            else if(codiSecret.includes(val[i]))//Si existeix en el codiSecret
                 countAcerts_existeix++;
         }
-        if(countAcertsPosicio==val.length)
+        if(countAcertsPosicio==val.length)//Si em acertat totes les posicions, es que es el numero secret
             hasGuanyat(table);
         else{
             var row = table.insertRow();
@@ -63,7 +66,7 @@ function hasGuanyat(table)
     for(var i = 1;i<table.rows.length;){
         table.deleteRow(i);
     }
-
+    codiSecret=generarNumeroAleatori();
 }
 
 function hasPerdut(table)
@@ -73,11 +76,29 @@ function hasPerdut(table)
     for(var i = 1;i<table.rows.length;){
         table.deleteRow(i);
     }
+    codiSecret=generarNumeroAleatori();
 
 
 }
 
 function generarNumeroAleatori()
 {
-
+    var numeroAleatori="";
+    var listOfNumbers=[];
+    for(i=0;i<10;i++)
+        listOfNumbers.push(i);
+    for(i=0;i<lengthCodiSecret;i++)
+    {
+        var index=randomIntFromInterval(0,listOfNumbers.length-1);
+        var number=listOfNumbers[index];
+        listOfNumbers.splice(number,1);
+        numeroAleatori=numeroAleatori+String(number);
+    }
+    
+    alert(numeroAleatori);
+    return numeroAleatori;
 }
+function randomIntFromInterval(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+  

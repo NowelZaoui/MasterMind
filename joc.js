@@ -121,7 +121,7 @@ function hasPerdut(table)
         table.deleteRow(i);
     }
     codiSecret=generarNumeroAleatori();
-    
+
     var ronda = document.getElementById("Round");
     NumeroRonda++;
 	ronda.textContent = "Round "+String(NumeroRonda)+":";
@@ -140,7 +140,7 @@ function generarNumeroAleatori()
         listOfNumbers.splice(index,1);
         numeroAleatori=numeroAleatori+String(number);
     }
-    alert(numeroAleatori);
+    //alert(numeroAleatori);
     return numeroAleatori;
 }
 function randomIntFromInterval(min, max) { // min and max included 

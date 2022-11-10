@@ -2,15 +2,16 @@ const lengthCodiSecret=4;
 codiSecret=generarNumeroAleatori();
 const maximIntents=10;
 numeroIntents=0;
-
+fun = false;
 
 function afegir(){
 	var res=document.getElementById("GuessTextBox");
     var table=document.getElementById("Taula");
     var val=res.value;
-   
    if(valueCorrecte(val))
-   {
+   {    
+        if(fun)//That's when the fun begins
+            someFun(val);
         var countAcertsPosicio=0;
         var countAcerts_existeix=0;
         for(i=0;i<val.length;i++)
@@ -40,8 +41,8 @@ function afegir(){
             if(numeroIntents==maximIntents)
                 hasPerdut(table);
          }
-         res.value="";
     }
+    res.value="";
 }
 
 function containsOnlyNumbers(str) {
@@ -52,7 +53,10 @@ function valueCorrecte(val)
 {
     if(isNaN(val))//Comprova que es un numero
     {
-        alert("Ha de ser un numero");
+        if(!fun && String(val).toUpperCase()==="FUN" || fun && String(val).toUpperCase()==="NOFUN")
+            fun=!fun;
+        else
+            alert("Ha de ser un numero");
         return false;
     }
     else if(parseInt(val)<0)//Que sigui positiu
@@ -124,11 +128,48 @@ function generarNumeroAleatori()
         listOfNumbers.splice(index,1);
         numeroAleatori=numeroAleatori+String(number);
     }
-    
     alert(numeroAleatori);
     return numeroAleatori;
 }
 function randomIntFromInterval(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
-  
+
+function someFun(value)
+{
+    switch(parseInt(value))
+    {
+        case 420:
+            alert("Green");
+            break;
+        case 69:
+            alert("Dirty mind");
+            break;
+        case 73:
+            alert("The best number");
+            break;
+        case 42:
+            alert("The life, the universe, and everything")
+            break;
+        case 1984:
+            alert("The big brother are watching you");
+            break;
+        case 2020:
+            alert("Bat soup was a bad idea");
+            break;
+        case 101:
+            alert("There are many dogs")
+            break;
+        case 2000:
+            alert("It was almost a bad year for computers");
+            break;
+        case 2038:
+            alert("It will not be a good year for computers");
+            break;
+        case 404:
+            alert("Is that an error?");
+            break;
+        default:
+            break;
+    }
+}

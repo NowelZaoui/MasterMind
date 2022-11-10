@@ -1,31 +1,16 @@
 const lengthCodiSecret=4;
 codiSecret=generarNumeroAleatori();
-const maximIntents=4;
+const maximIntents=10;
 numeroIntents=0;
 
-function containsOnlyNumbers(str) {
-    return /^[0-9]+$/.test(str);
-  }
+
 function afegir(){
 	var res=document.getElementById("GuessTextBox");
     var table=document.getElementById("Taula");
     var val=res.value;
-    if(isNaN(val))//Comprova que es un numero
-        alert("Ha de ser un numero");
-    else if(parseInt(val)<0)//Que sigui positiu
-    {
-        alert("Ha de ser un numero positiu");
-    }
-    else if(!containsOnlyNumbers(val))
-    {
-        alert("Ha de ser un numero natural");
-
-    }
-    else if(val.length!=lengthCodiSecret)// Ha de ser de mida 4
-    {
-        alert("Ha de ser un numero de mida "+String(lengthCodiSecret));
-    }
-    else{
+   
+   if(valueCorrecte(val))
+   {
         var countAcertsPosicio=0;
         var countAcerts_existeix=0;
         for(i=0;i<val.length;i++)
@@ -59,9 +44,43 @@ function afegir(){
     }
 }
 
+function containsOnlyNumbers(str) {
+    return /^[0-9]+$/.test(str);
+  }
+
+function valueCorrecte(val)
+{
+    if(isNaN(val))//Comprova que es un numero
+    {
+        alert("Ha de ser un numero");
+        return false;
+    }
+    else if(parseInt(val)<0)//Que sigui positiu
+    {
+        alert("Ha de ser un numero positiu");
+        return false;
+    }
+    else if(!containsOnlyNumbers(val))
+    {
+        alert("Ha de ser un numero natural");
+        return false;
+
+    }
+    else if(val.length!=lengthCodiSecret)// Ha de ser de mida 4
+    {
+        alert("Ha de ser un numero de mida "+String(lengthCodiSecret));
+        return false;
+    }
+    return true;
+
+}
+
 function hasGuanyat(table)
 {
     alert("Has trobat el codi secret. :-)");
+    /*var vict=document.getElementById("victories").value;
+    alert(vict);
+    vict++;*/
     numeroIntents=0;
     for(var i = 1;i<table.rows.length;){
         table.deleteRow(i);
@@ -77,8 +96,6 @@ function hasPerdut(table)
         table.deleteRow(i);
     }
     codiSecret=generarNumeroAleatori();
-
-
 }
 
 function generarNumeroAleatori()
@@ -91,7 +108,7 @@ function generarNumeroAleatori()
     {
         var index=randomIntFromInterval(0,listOfNumbers.length-1);
         var number=listOfNumbers[index];
-        listOfNumbers.splice(number,1);
+        listOfNumbers.splice(index,1);
         numeroAleatori=numeroAleatori+String(number);
     }
     

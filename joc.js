@@ -33,8 +33,12 @@ function afegir(){
                 cell.innerHTML = String(val[i]);
             }
             var cell=row.insertCell(val.length+0);
+			cell.innerHTML = '<span class="dotPos"> </span>'
+			cell=row.insertCell(val.length+1);
             cell.innerHTML = String (countAcertsPosicio);
-            cell=row.insertCell(val.length+1);
+            cell=row.insertCell(val.length+2);
+			cell.innerHTML = '<span class="dotNum"> </span>'
+			cell=row.insertCell(val.length+3);
             cell.innerHTML = String (countAcerts_existeix);
 
             numeroIntents++;

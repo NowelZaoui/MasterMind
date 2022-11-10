@@ -99,7 +99,7 @@ function hasGuanyat(table)
 
 function hasPerdut(table)
 {
-    alert("Has superat el numero de intents. :-(");
+    alert("Has superat el numero de intents. Era "+String(codiSecret)+" :-(");
 
     //Canviem el contador
     var score=document.getElementById("derrotes");
@@ -168,6 +168,9 @@ function someFun(value)
             break;
         case 404:
             alert("Is that an error?");
+            break;
+        case 23:
+            alert("It's everywhere");
             break;
         default:
             break;

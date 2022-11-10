@@ -169,7 +169,7 @@ function someFun(value)
             alert("The life, the universe, and everything")
             break;
         case 1984:
-            alert("The big brother are watching you");
+            alert("Big brother watches over you");
             break;
         case 2020:
             alert("Bat soup was a bad idea");
@@ -188,6 +188,9 @@ function someFun(value)
             break;
         case 23:
             alert("It's everywhere");
+            break;
+        case 3141:
+            alert("PI");
             break;
         default:
             break;

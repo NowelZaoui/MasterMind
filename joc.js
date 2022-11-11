@@ -1,7 +1,6 @@
 const lengthCodiSecret=4;
 codiSecret=generarNumeroAleatori();
 const maximIntents=10;
-numeroIntents=0;
 fun = false;
 
 function jugar(){
@@ -50,9 +49,13 @@ function afegir(){
 			cell.innerHTML = '<span class="dotNum"> </span>'
 			cell=row.insertCell(val.length+3);
             cell.innerHTML = String (countAcerts_existeix);
+            //Mirem quin intent estem
 
-            numeroIntents++;
-            if(numeroIntents==maximIntents)
+            var ronda = document.getElementById("Round");
+            var numeroIntents=parseInt(ronda.textContent);
+            ronda.textContent = String(numeroIntents+1);
+            numeroIntents--;
+            if(!(numeroIntents<maximIntents-1))
                 hasPerdut(table);
          }
     }
@@ -105,13 +108,7 @@ function hasGuanyat(table)
     score.innerHTML=String(vict);
 
     //reset
-    numeroIntents=0;
-    for(var i = 1;i<table.rows.length;){
-        table.deleteRow(i);
-    }
-    codiSecret=generarNumeroAleatori();
-    var ronda = document.getElementById("Round");
-	ronda.textContent = String(parseInt(ronda.textContent)+1);
+    resetTaula(table);
 }
 
 function hasPerdut(table)
@@ -126,15 +123,20 @@ function hasPerdut(table)
     score.innerHTML=String(derr);
     
     //reset
-    numeroIntents=0;
+    resetTaula(table);
+}
+
+function resetTaula(table)
+{
     for(var i = 1;i<table.rows.length;){
         table.deleteRow(i);
     }
     codiSecret=generarNumeroAleatori();
-
     var ronda = document.getElementById("Round");
-	ronda.textContent = String(parseInt(ronda.textContent)+1);
+	ronda.textContent = String(1);
+
 }
+
 
 function generarNumeroAleatori()
 {

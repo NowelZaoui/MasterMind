@@ -4,6 +4,16 @@ const maximIntents=10;
 numeroIntents=0;
 fun = false;
 
+function jugar(){
+	var nom=document.getElementById("nomUsuari");
+	var entrada=document.getElementById("UsernameInput");
+	//faltaria comprovar que no estigui en blanc
+	nom.textContent=entrada.value;
+	document.getElementById("MostraResultats").classList.toggle('Amagat'); // toggle the class
+	document.getElementById("InputITaula").classList.toggle('Amagat'); // toggle the class
+	document.getElementById("InputUsuari").classList.toggle('Amagat');
+}
+
 function afegir(){
 	var res=document.getElementById("GuessTextBox");
     var table=document.getElementById("Taula");
@@ -85,7 +95,8 @@ function valueCorrecte(val)
 
 function hasGuanyat(table)
 {
-    alert("Has trobat el codi secret. :-)");
+	var nom=document.getElementById("nomUsuari");
+    alert(String(nom.textContent)+", has trobat el codi secret. :-)");
 
     //Canviem el contador
     var score=document.getElementById("victories");
@@ -105,7 +116,8 @@ function hasGuanyat(table)
 
 function hasPerdut(table)
 {
-    alert("Has superat el numero de intents. Era "+String(codiSecret)+" :-(");
+	var nom=document.getElementById("nomUsuari");
+    alert(String(nom.textContent)+", has esgotat tots els intents. El codi era "+String(codiSecret)+" :-(");
 
     //Canviem el contador
     var score=document.getElementById("derrotes");
@@ -138,6 +150,7 @@ function generarNumeroAleatori()
         numeroAleatori=numeroAleatori+String(number);
     }
     //alert(numeroAleatori);
+	console.log("Per als tramposos: "+String(numeroAleatori));//per testejar, ja ho treurem al final... o ho podem deixar, total no ho veus si no obres les eines del navegador
     return numeroAleatori;
 }
 function randomIntFromInterval(min, max) { // min and max included 

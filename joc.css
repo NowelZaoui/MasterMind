@@ -26,6 +26,10 @@ hr{
     color: pink;
 }
 
+.Amagat{
+	display:none;
+}
+
 .dot{
    height: 15px;
    width: 15px;

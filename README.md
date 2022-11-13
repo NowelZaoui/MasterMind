@@ -17,7 +17,7 @@ Every time a new game is started, a new random secret code is created. To ensure
 
 
 ## EXTRA: funMode
-We have added a little easter egg: the FunMode. To activate it, since it is initially deactivated, in the input of numbers, you must enter the word "Fun". What will happen now is that certain numbers will bring up messages that will reference popular culture. Some of these, being less than 4 figures, in order to be entered you have to put zeros to be able to complete them: as with the number 3, you have to put "0003" so that it can be detected.
+We have added a little easter egg: the FunMode. To activate it, since it is initially deactivated, in the input of numbers, you must enter the word "Fun". What will happen now is that certain numbers will bring up messages that will reference popular culture. Some of these, being less than 4 digits, in order to be entered you have to put zeros to be able to complete them: as with the number 3, you have to put "0003" so that it can be detected.
 Numbers like 2020, 3, 1984 or 42 are included.
 
 To deactivate the FunMode already started, "NoFun" must be entered.

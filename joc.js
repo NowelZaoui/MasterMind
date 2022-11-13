@@ -151,7 +151,6 @@ function generarNumeroAleatori()
         listOfNumbers.splice(index,1);
         numeroAleatori=numeroAleatori+String(number);
     }
-    //alert(numeroAleatori);
 	console.log("Per als tramposos: "+String(numeroAleatori));//per testejar, ja ho treurem al final... o ho podem deixar, total no ho veus si no obres les eines del navegador
     return numeroAleatori;
 }
@@ -174,43 +173,43 @@ function someFun(value)
         case 69:
             alert("Dirty mind");
             break;
-        case 73:
+        case 73://Big Bang Theory Reference
             alert("The best number");
             break;
-        case 42:
+        case 42://The hitchhiker's guide to the galaxy Reference
             alert("The life, the universe, and everything")
             break;
-        case 1984:
+        case 1984://1984 book reference
             alert("WAR IS PEACE--FREEDOM IS SLAVERY--IGNORANCE IS STRENGTH");
             break;
-        case 2020:
+        case 2020://Covid Pandemic Reference
             alert("Bat soup was a bad idea");
             break;
-        case 101:
+        case 101://One Hundred and One Dalmatians Reference
             alert("There are many dogs")
             break;
-        case 2000:
+        case 2000://Y2K computer error Reference
             alert("It was almost a bad year for computers");
             break;
-        case 2038:
+        case 2038://YDK38 computer error Reference
             alert("It will not be a good year for computers");
             break;
-        case 404:
+        case 404://Ethernet connection error Reference
             alert("Is that an error?");
             break;
-        case 23:
+        case 23://Reference to the movie The Number 23
             alert("It's everywhere");
             break;
-        case 3141:
+        case 3141://Number Pi Reference
             alert("PI");
             break;
-        case 3:
+        case 3://Outwit the engineers by bringing Pi closer to 3.
             alert("Thats no PI (maybe)");
             break;
-        case 1618:
+        case 1618://golden ratio number
             alert("Gold")
             break;
-        case 1312:
+        case 1312://Reference to ACAB
             alert("All Cats Are Beautiful")
             break;
         default:
